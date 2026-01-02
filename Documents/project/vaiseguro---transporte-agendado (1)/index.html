@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>vaiSeguro | Boarding System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'], // Added for Ticket Data
+            },
+            colors: {
+              navy: {
+                50: '#f0f4f8',
+                100: '#d9e2ec',
+                200: '#bcccdc',
+                300: '#9fb3c8',
+                400: '#829ab1',
+                500: '#627d98',
+                600: '#486581',
+                700: '#334e68',
+                800: '#102a43',
+                900: '#0B1E3B',
+              },
+              emerald: {
+                400: '#34d399',
+                500: '#10b981',
+                600: '#059669',
+              },
+              paper: '#fdfdfd', // Ticket paper color
+            },
+            backgroundImage: {
+              'dashed-line': "url(\"data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='0' ry='0' stroke='%23CBD5E1FF' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e\")",
+            },
+            boxShadow: {
+              'ticket': '0 4px 20px -2px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06)',
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.4s ease-out forwards',
+              'slide-up': 'slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'print-ticket': 'printTicket 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              printTicket: {
+                 '0%': { opacity: '0', transform: 'translateY(-20px)' },
+                 '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #e2e8f0; /* Darker background to pop the ticket */
+        color: #0B1E3B;
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      /* Ticket Notches (Cutouts) */
+      .ticket-notch-l {
+        mask-image: radial-gradient(circle at left, transparent 10px, black 11px);
+        -webkit-mask-image: radial-gradient(circle at left, transparent 10px, black 11px);
+      }
+      .ticket-notch-r {
+        mask-image: radial-gradient(circle at right, transparent 10px, black 11px);
+        -webkit-mask-image: radial-gradient(circle at right, transparent 10px, black 11px);
+      }
+
+      /* Barcode Pattern Generator CSS */
+      .barcode {
+        background-image: linear-gradient(90deg, 
+          #000 0%, #000 4%, 
+          transparent 4%, transparent 6%, 
+          #000 6%, #000 8%, 
+          transparent 8%, transparent 9%, 
+          #000 9%, #000 14%, 
+          transparent 14%, transparent 16%, 
+          #000 16%, #000 19%, 
+          transparent 19%, transparent 22%, 
+          #000 22%, #000 24%, 
+          transparent 24%, transparent 26%, 
+          #000 26%, #000 30%, 
+          transparent 30%, transparent 34%,
+          #000 34%, #000 36%,
+          transparent 36%, transparent 40%,
+          #000 40%, #000 45%,
+          transparent 45%, transparent 48%,
+          #000 48%, #000 55%,
+          transparent 55%, transparent 60%
+        );
+        background-size: 100% 100%;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "date-fns": "https://esm.sh/date-fns@2.30.0",
+    "jspdf": "https://esm.sh/jspdf@2.5.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
