@@ -68,7 +68,7 @@ python comentador.py --post https://www.instagram.com/p/CODIGO/ --simular --max 
 - O Instagram limita a quantidade de comentários por conta. Se aparecer
   "Tente novamente mais tarde", o script para. **Não o voltes a correr logo a
   seguir**: espera pelo menos 24 h, senão o bloqueio pode ficar mais longo.
-- Intervalos curtos e sessões longas aumentam o risco de bloqueio. Comece com
+- Intervalos curtos e sessões longas aumentam o risco de bloqueio. Começa com
   os valores por omissão e um `--max` baixo.
 - A pasta `perfil-navegador/` tem a tua sessão do Instagram. **Não a partilhes**
   (já está no `.gitignore`).
